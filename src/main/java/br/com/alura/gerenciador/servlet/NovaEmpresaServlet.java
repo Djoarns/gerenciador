@@ -8,7 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "NovaEmpresa", value = "/NovaEmpresa")
+@WebServlet(name = "novaEmpresa", value = "/novaEmpresa")
 public class NovaEmpresaServlet extends HttpServlet {
 
     @Override
