@@ -2,6 +2,7 @@ package br.com.alura.gerenciador.servlet;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Banco {
@@ -25,6 +26,12 @@ public class Banco {
         Banco.lista.add(empresa);
     }
 
+    public void altera(Integer id, String nome, Date dataAbertura) {
+        Empresa empresa = buscaEmpresaById(id);
+        empresa.setNome(nome);
+        empresa.setDataAbertura(dataAbertura);
+    }
+
     public void removeEmpresa(Integer id) {
         lista.removeIf(empresa -> empresa.getId() == id);
     }
@@ -33,4 +40,13 @@ public class Banco {
         return Banco.lista;
     }
 
+    public Empresa buscaEmpresaById(Integer id) {
+
+        for (Empresa empresa : lista) {
+            if (empresa.getId() == id) {
+                return empresa;
+            }
+        }
+        return null;
+    }
 }
