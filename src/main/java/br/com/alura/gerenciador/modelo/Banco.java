@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.modelo;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
