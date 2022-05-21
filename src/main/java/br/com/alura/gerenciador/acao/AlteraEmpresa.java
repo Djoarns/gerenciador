@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class AlteraEmpresa implements Acao {
 
-
+    @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer idEmpresa = Integer.valueOf(request.getParameter("id"));
         String nomeEmpresa = request.getParameter("nome");
@@ -28,6 +28,6 @@ public class AlteraEmpresa implements Acao {
         Banco banco = new Banco();
         banco.altera(idEmpresa, nomeEmpresa, dataAbertura);
 
-        return "redirect:entrada?acao=ListaEmpresas";
+        return "redirect:ListaEmpresas";
     }
 }

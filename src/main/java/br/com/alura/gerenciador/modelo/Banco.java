@@ -1,29 +1,39 @@
 package br.com.alura.gerenciador.modelo;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Banco {
 
-    private static final List<Empresa> lista = new ArrayList<>();
+    private static final List<Empresa> empresas = new ArrayList<>();
+    private static final List<Usuario> usuarios = new ArrayList<>();
     private static Integer chaveSequencial = 1;
 
     static {
         Empresa empresa = new Empresa();
         empresa.setId(Banco.chaveSequencial++);
         empresa.setNome("Alura");
-        lista.add(empresa);
+        empresas.add(empresa);
         Empresa empresa2 = new Empresa();
         empresa2.setId(Banco.chaveSequencial++);
         empresa2.setNome("Caelum");
-        lista.add(empresa2);
+        empresas.add(empresa2);
+
+        Usuario user1 = new Usuario();
+        user1.setLogin("Djonatan");
+        user1.setSenha("12345");
+        usuarios.add(user1);
+        Usuario user2 = new Usuario();
+        user2.setLogin("Aline");
+        user2.setSenha("12345");
+        usuarios.add(user2);
+
     }
 
     public void adiciona(Empresa empresa) {
         empresa.setId(Banco.chaveSequencial++);
-        Banco.lista.add(empresa);
+        Banco.empresas.add(empresa);
     }
 
     public void altera(Integer id, String nome, Date dataAbertura) {
@@ -33,18 +43,27 @@ public class Banco {
     }
 
     public void removeEmpresa(Integer id) {
-        lista.removeIf(empresa -> empresa.getId() == id);
+        empresas.removeIf(empresa -> empresa.getId() == id);
     }
 
     public List<Empresa> getEmpresas() {
-        return Banco.lista;
+        return Banco.empresas;
     }
 
     public Empresa buscaEmpresaById(Integer id) {
 
-        for (Empresa empresa : lista) {
+        for (Empresa empresa : empresas) {
             if (empresa.getId() == id) {
                 return empresa;
+            }
+        }
+        return null;
+    }
+
+    public Usuario getUserIfExists(String login, String senha) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.isEqual(login, senha)) {
+                return usuario;
             }
         }
         return null;

@@ -12,6 +12,7 @@ import java.util.List;
 
 public class ListaEmpresas implements Acao {
 
+    @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Banco banco = new Banco();
         List<Empresa> lista = banco.getEmpresas();

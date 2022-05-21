@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class MostraEmpresa implements Acao {
 
+    @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Integer id = Integer.valueOf(request.getParameter("id"));

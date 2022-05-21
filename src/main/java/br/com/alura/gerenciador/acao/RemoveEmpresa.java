@@ -9,11 +9,12 @@ import java.io.IOException;
 
 public class RemoveEmpresa implements Acao {
 
+    @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer id = Integer.valueOf(request.getParameter("id"));
         Banco banco = new Banco();
         banco.removeEmpresa(id);
-        return "redirect:entrada?acao=ListaEmpresas";
+        return "redirect:ListaEmpresas";
     }
 
 }

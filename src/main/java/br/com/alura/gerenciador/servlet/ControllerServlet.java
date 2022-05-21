@@ -30,7 +30,7 @@ public class ControllerServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoEndereco[1]);
             rd.forward(request, response);
         } else if (tipoEndereco[0].equals("redirect")) {
-            response.sendRedirect(tipoEndereco[1]);
+            response.sendRedirect("entrada?acao=" + tipoEndereco[1]);
         }
 
     }

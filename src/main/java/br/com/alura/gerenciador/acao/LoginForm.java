@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class NovaEmpresaForm implements Acao {
+public class LoginForm implements Acao {
 
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        return "forward:formNovaEmpresa.jsp";
+        return "forward:formLogin.jsp";
     }
 }
