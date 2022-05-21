@@ -10,14 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class ListaEmpresas {
+public class ListaEmpresas implements Acao {
 
-    public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Banco banco = new Banco();
         List<Empresa> lista = banco.getEmpresas();
         request.setAttribute("empresas", lista);
-        RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
-        rd.forward(request, response);
+        return "forward:listaEmpresas.jsp";
     }
 
 }

@@ -1,22 +1,19 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.acao;
 
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "novaEmpresa", value = "/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
+public class NovaEmpresa implements Acao {
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+    public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String nomeEmpresa = request.getParameter("nome");
         Date dataAbertura;
@@ -34,10 +31,7 @@ public class NovaEmpresaServlet extends HttpServlet {
         Banco banco = new Banco();
         banco.adiciona(empresa);
 
-        response.sendRedirect("listaEmpresas");
-
-//        RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
-//        request.setAttribute("empresa", empresa.getNome());
-//        rd.forward(request, response);
+        return "redirect:entrada?acao=ListaEmpresas";
     }
+
 }

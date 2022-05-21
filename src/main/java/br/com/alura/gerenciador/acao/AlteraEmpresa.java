@@ -10,10 +10,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AlteraEmpresa {
+public class AlteraEmpresa implements Acao {
 
 
-    public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer idEmpresa = Integer.valueOf(request.getParameter("id"));
         String nomeEmpresa = request.getParameter("nome");
         Date dataAbertura;
@@ -28,6 +28,6 @@ public class AlteraEmpresa {
         Banco banco = new Banco();
         banco.altera(idEmpresa, nomeEmpresa, dataAbertura);
 
-        response.sendRedirect("listaEmpresas");
+        return "redirect:entrada?acao=ListaEmpresas";
     }
 }

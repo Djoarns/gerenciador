@@ -14,10 +14,10 @@ public class Banco {
         Empresa empresa = new Empresa();
         empresa.setId(Banco.chaveSequencial++);
         empresa.setNome("Alura");
+        lista.add(empresa);
         Empresa empresa2 = new Empresa();
         empresa2.setId(Banco.chaveSequencial++);
         empresa2.setNome("Caelum");
-        lista.add(empresa);
         lista.add(empresa2);
     }
 
