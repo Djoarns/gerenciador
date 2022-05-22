@@ -10,6 +10,7 @@
     <title>Title</title>
 </head>
 <body>
+    <c:import url="logout-parcial.jsp"/>
     <form action="${linkControllerServlet}" method="post">
         Nome: <input type="text" name="nome" value="${empresa.nome}"/>
         Data Abertura: <input type="text" name="data" value="<fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/>"/>

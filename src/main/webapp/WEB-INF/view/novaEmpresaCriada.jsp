@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>Nova Empresa Criada</title>
 </head>
+    <c:import url="logout-parcial.jsp"/>
     <body>
         <c:if test="${not empty empresa}">
               Empresa ${empresa} cadastrada com sucesso!

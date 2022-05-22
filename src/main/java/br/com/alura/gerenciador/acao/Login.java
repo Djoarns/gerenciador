@@ -7,6 +7,7 @@ import br.com.alura.gerenciador.util.StringUtil;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class Login implements Acao {
@@ -21,6 +22,8 @@ public class Login implements Acao {
         Usuario user = banco.getUserIfExists(login, senha);
 
         if (StringUtil.isValid(user)) {
+            HttpSession sessao = request.getSession();
+            sessao.setAttribute("usuarioLogado", user);
             return "redirect:ListaEmpresas";
         } else {
             return "redirect:LoginForm";
